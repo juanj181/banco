@@ -16,38 +16,49 @@ import java.util.List;
  * @author alumno
  */
 public class EntidadBancariaDAO {
-    
-    EntidadBancaria read(int idEntidadBancaria) throws SQLException, ClassNotFoundException {
+
+    public static void read(int mRegis) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection = null;
-        connection =DriverManager.getConnection("jdbc:mysql://localhost:3306/banco","banco","banco");
-        String selectSQL= " SELECT * from entidadbancaria WHERE idEntidadBancaria=? ";
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", "banco", "banco");
+        String selectSQL = "SELECT * from entidadbancaria WHERE idEntidadBancaria=?";
         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-      preparedStatement.setInt(1, 1);
-        ResultSet rs =preparedStatement.executeQuery();{
-       return  null; 
-    }
-    }
-    
-    
-    void insert( EntidadBancaria entidadBancaria){
+        preparedStatement.setInt(1, mRegis);
+        ResultSet rs = preparedStatement.executeQuery();
+        System.out.println(rs.getRow());
+        int idEntidad=-1;
+        while (rs.next()) {
+            idEntidad = rs.getInt("idEntidadBancaria");
+            int CodigoEntidad = rs.getInt("codigoEntidad");
+            String Nombre = rs.getString("nombre");
+            String cif = rs.getString("cif");
+            System.out.println("ID " + "CódigoEntidad  " + "NombreEntidad " + "Cif ");
+            System.out.println(" " + idEntidad + "     " + CodigoEntidad + "     " + Nombre + "     " + cif);
+        }
+        if(idEntidad==-1) System.out.println("null");
         
-    }
-    
-    void update( EntidadBancaria entidadBancaria){
+
         
+        connection.close();
+
     }
-    
-    Void delete(int idEntidadBancaria){
+
+    void insert(EntidadBancaria entidadBancaria) {
+    }
+
+    void update(EntidadBancaria entidadBancaria) {
+    }
+
+    Void delete(int idEntidadBancaria) {
         return null;
     }
-    
-    List<EntidadBancaria> findAll(){
+
+    List<EntidadBancaria> findAll() {
         return null;
-    }    
-    
-    List<EntidadBancaria> findByCodigo(String codigo){
+    }
+
+    List<EntidadBancaria> findByCodigo(String codigo) {
         return null;
-        
+
     }
 }
