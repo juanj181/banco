@@ -44,6 +44,24 @@ public class EntidadBancariaDAO {
     }
 
     void insert(EntidadBancaria entidadBancaria) {
+        
+        /*
+            void insert(EntidadBancaria entidadBancaria) throws SQLException {
+
+        String insertSql = "INSERT INTO EntidadBAncaria (idEntidadBancaria, codigoEntidad, nombre, cif, tipoEntidadBancaria ) VALUES (?,?,?,?,?)";
+
+
+        PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
+
+        preparedStatement.setInt(1, entidadBancaria.getIdEntidad());
+        preparedStatement.setInt(2, entidadBancaria.getCodigoEntidad());
+        preparedStatement.setString(3, entidadBancaria.getNombre());
+        preparedStatement.setString(4, entidadBancaria.getCIF());
+        preparedStatement.setString(5, entidadBancaria.getTipoEntidadBancaria().name());
+        preparedStatement.executeUpdate();
+    }
+        
+        */
     }
 
     void update(EntidadBancaria entidadBancaria) {
