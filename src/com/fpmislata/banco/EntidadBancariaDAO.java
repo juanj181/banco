@@ -17,13 +17,13 @@ import java.util.List;
  */
 public class EntidadBancariaDAO {
 
-    public static void read(int mRegis) throws SQLException, ClassNotFoundException {
+    public static void read(int idEntidadBancaria) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = null;
+        Connection connection;
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", "banco", "banco");
         String selectSQL = "SELECT * from entidadbancaria WHERE idEntidadBancaria=?";
         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-        preparedStatement.setInt(1, mRegis);
+        preparedStatement.setInt(1, idEntidadBancaria);
         ResultSet rs = preparedStatement.executeQuery();
         System.out.println(rs.getRow());
         int idEntidad=-1;

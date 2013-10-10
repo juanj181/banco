@@ -22,10 +22,10 @@ public class Banco {
     // TODO code application logic here
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         //System.out.println("Se ha conectado a la BD!!");
-        read( " SELECT * from entidadbancaria WHERE idEntidadBancaria=? ");
+        EntidadBancariaDAO.read(1);
 
     }
-    public static void read(String mSQL)throws SQLException, ClassNotFoundException{
+   /* public static void read(String mSQL)throws SQLException, ClassNotFoundException{
         Class.forName("com.mysql.jdbc.Driver");
         Connection connection = null;
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", "banco", "banco");
@@ -41,10 +41,10 @@ public class Banco {
             String cif = rs.getString("cif");
             System.out.println("ID " + "CódigoEntidad  " + "NombreEntidad " + "Cif ");
             System.out.println(" " + idEntidad + "     " + CodigoEntidad + "     " + Nombre + "     " + cif);
-        }
+        } 
 
 
         connection.close();
        
-    }
+    }*/
 }
