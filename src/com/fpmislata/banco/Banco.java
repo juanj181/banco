@@ -4,10 +4,7 @@
  */
 package com.fpmislata.banco;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 
 /**
@@ -23,6 +20,10 @@ public class Banco {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         //System.out.println("Se ha conectado a la BD!!");
         EntidadBancariaDAO.read(1);
+        
+        
+        EntidadBancaria entidadBancaria1 = new EntidadBancaria(89, "015", "CajaMar", "456789CC", TipoEntidadBancaria.COOPERATIVASCREDITO);
+        EntidadBancaria.insert(entidadBancaria1);
 
     }
    /* public static void read(String mSQL)throws SQLException, ClassNotFoundException{
