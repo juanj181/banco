@@ -23,7 +23,7 @@ public class Banco {
         
         
         EntidadBancaria entidadBancaria1 = new EntidadBancaria(89, "015", "CajaMar", "456789CC", TipoEntidadBancaria.COOPERATIVASCREDITO);
-        EntidadBancaria.insert(entidadBancaria1);
+        EntidadBancariaDAO.insert(entidadBancaria1);
 
     }
    /* public static void read(String mSQL)throws SQLException, ClassNotFoundException{
