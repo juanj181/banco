@@ -29,7 +29,7 @@ public class ConnectionFactoryImplJDBC implements ConnectionFactory {
         }
 Connection conexion = null;
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco","root","root");
+            conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco","banco","banco");
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionFactoryImplJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }
