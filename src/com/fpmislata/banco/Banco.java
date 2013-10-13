@@ -22,8 +22,11 @@ public class Banco {
         EntidadBancariaDAO.read(1);
         
         
-        EntidadBancaria entidadBancaria1 = new EntidadBancaria(89, "015", "CajaMar", "456789CC", TipoEntidadBancaria.COOPERATIVASCREDITO);
+        EntidadBancaria entidadBancaria1 = new EntidadBancaria(99, "025", "CajaMar", "456789CC", TipoEntidadBancaria.COOPERATIVASCREDITO);
         EntidadBancariaDAO.insert(entidadBancaria1);
+        
+        EntidadBancaria entidadBancaria2 = new EntidadBancaria(52, "121", "CajaBarranco", "923424C", TipoEntidadBancaria.ESTABLECIMIENTOSFINANCIEROS);
+        EntidadBancariaDAO.update(entidadBancaria2);
 
     }
    /* public static void read(String mSQL)throws SQLException, ClassNotFoundException{

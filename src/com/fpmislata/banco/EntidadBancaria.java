@@ -12,26 +12,36 @@ import java.util.List;
  * @author alumno
  */
 public class EntidadBancaria {
-    
-    private String idEntidad;
+
+    private int idEntidadBancaria;
     private String codigoEntidad;
     private String nombre;
     private String CIF;
     private TipoEntidadBancaria tipoEntidadBancaria;
-    private List<SucursalBancaria> sucursales = new ArrayList<>(); 
+    private List<SucursalBancaria> sucursales = new ArrayList<>();
 
     /**
      * @return the idEntidad
      */
-    public String getIdEntidad() {
-        return idEntidad;
+    public EntidadBancaria(int idEntidadBancaria, String codigoEntidad, String nombre, String CIF, TipoEntidadBancaria TipoEntidadBancaria) {
+        this.CIF = CIF;
+        this.codigoEntidad = codigoEntidad;
+        this.idEntidadBancaria = idEntidadBancaria;
+        this.nombre = nombre;
+        this.tipoEntidadBancaria = TipoEntidadBancaria;
+
+
+    }
+
+    public int getIdEntidadBancaria() {
+        return idEntidadBancaria;
     }
 
     /**
      * @param idEntidad the idEntidad to set
      */
-    public void setIdEntidad(String idEntidad) {
-        this.idEntidad = idEntidad;
+    public void setIdEntidadBancaria(int idEntidad) {
+        this.idEntidadBancaria = idEntidad;
     }
 
     /**
@@ -103,6 +113,4 @@ public class EntidadBancaria {
     public void setSucursales(List<SucursalBancaria> sucursales) {
         this.sucursales = sucursales;
     }
-    
-    
 }
