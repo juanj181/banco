@@ -25,13 +25,13 @@ public class ConnectionFactoryImplJDBC implements ConnectionFactory {
         try {       
        Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ConnectionFactoryImplJDBC.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(ConnectionFactoryImplJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }
 Connection conexion = null;
         try {
             conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco","banco","banco");
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactoryImplJDBC.class.getName()).log(Level.SEVERE, null, ex);
+         //  Logger.getLogger(ConnectionFactoryImplJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }
 return conexion;
     }        

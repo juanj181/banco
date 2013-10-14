@@ -84,7 +84,7 @@ public class EntidadBancariaDAO {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco", "banco", "banco");
 
-        String deleteSQL = "DELETE FROM entidadbancaria WHERE idEntidad = ?";
+        String deleteSQL = "DELETE FROM entidadbancaria WHERE idEntidadBancaria = ?";
         PreparedStatement preparedStatement3 = conn.prepareStatement(deleteSQL);
         preparedStatement3.setInt(1, entidadBancaria);
 // execute delete SQL stetement
