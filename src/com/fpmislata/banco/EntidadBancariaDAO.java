@@ -59,6 +59,8 @@ public class EntidadBancariaDAO {
         preparedStatement.setString(4, entidadBancaria.getCIF());
         preparedStatement.setString(5, entidadBancaria.getTipoEntidadBancaria().name());
         preparedStatement.executeUpdate();
+
+        conn.close();
     }
 
     public static void update(EntidadBancaria entidadBancaria) throws ClassNotFoundException, SQLException {
@@ -66,24 +68,29 @@ public class EntidadBancariaDAO {
         Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco", "banco", "banco");
 
 
-        String updateSQL = "UDATE entidadBancaria SET codigoEntidad = ?,  nombre = ?, cif = ?, tipoEntidadBancaria = ?   WHERE idEntidadBancaria = ?";
-
-
-        PreparedStatement preparedStatement = conn.prepareStatement(updateSQL);
-
-        preparedStatement.setString(1, entidadBancaria.getCodigoEntidad());
-        preparedStatement.setString(2, entidadBancaria.getNombre());
-        preparedStatement.setString(3, entidadBancaria.getCIF());
-        preparedStatement.setString(4, entidadBancaria.getTipoEntidadBancaria().name());
-        preparedStatement.setInt(5, entidadBancaria.getIdEntidadBancaria());
+        String updateTableSQL = "UPDATE entidadbancaria SET nombre = ? WHERE identidad = ?";
+        PreparedStatement preparedStatement = conn.prepareStatement(updateTableSQL);
+        preparedStatement.setString(1, "Santander");
+        preparedStatement.setInt(2, entidadBancaria.getIdEntidadBancaria());
         preparedStatement.executeUpdate();
 
+        conn.close();
 
 
     }
 
-    Void delete(int idEntidadBancaria) {
-        return null;
+    void delete(int entidadBancaria) throws ClassNotFoundException, SQLException {
+
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco", "banco", "banco");
+
+        String deleteSQL = "DELETE FROM entidadbancaria WHERE idEntidad = ?";
+        PreparedStatement preparedStatement3 = conn.prepareStatement(deleteSQL);
+        preparedStatement3.setInt(1, entidadBancaria);
+// execute delete SQL stetement
+        preparedStatement3.executeUpdate();
+
+        conn.close();
     }
 
     List<EntidadBancaria> findAll() {
