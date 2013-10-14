@@ -19,10 +19,9 @@ public class EntidadBancariaDAO {
 
     public static void read(int idEntidadBancaria) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection;
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", "banco", "banco");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", "banco", "banco");
         String selectSQL = "SELECT * from entidadbancaria WHERE idEntidadBancaria=?";
-        PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+        PreparedStatement preparedStatement = conn.prepareStatement(selectSQL);
         preparedStatement.setInt(1, idEntidadBancaria);
         ResultSet rs = preparedStatement.executeQuery();
         System.out.println(rs.getRow());
@@ -41,18 +40,19 @@ public class EntidadBancariaDAO {
 
 
 
-        connection.close();
+        conn.close();
 
     }
 
     public static void insert(EntidadBancaria entidadBancaria) throws SQLException, ClassNotFoundException {
 
-        String insertSQL = "INSERT INTO EntidadBAncaria (idEntidadBancaria, codigoEntidad, nombre, cif, tipoEntidadBancaria ) VALUES (?,?,?,?,?)";
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection;
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", "banco", "banco");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco", "banco", "banco");
 
-        PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
+        String insertSQL = "INSERT INTO EntidadBAncaria (idEntidadBancaria, codigoEntidad, nombre, cif, tipoEntidadBancaria ) VALUES (?,?,?,?,?)";
+
+
+        PreparedStatement preparedStatement = conn.prepareStatement(insertSQL);
         preparedStatement.setInt(1, entidadBancaria.getIdEntidadBancaria());
         preparedStatement.setString(2, entidadBancaria.getCodigoEntidad());
         preparedStatement.setString(3, entidadBancaria.getNombre());
@@ -62,12 +62,14 @@ public class EntidadBancariaDAO {
     }
 
     public static void update(EntidadBancaria entidadBancaria) throws ClassNotFoundException, SQLException {
-        String updateSQL = "UDATE entidadBancaria SET codigoEntidad = ?,  nombre = ?, cif = ?, tipoEntidadBancaria = ?   WHERE idEntidadBancaria = ?";
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection;
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", "banco", "banco");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/banco", "banco", "banco");
 
-        PreparedStatement preparedStatement = connection.prepareStatement(updateSQL);
+
+        String updateSQL = "UDATE entidadBancaria SET codigoEntidad = ?,  nombre = ?, cif = ?, tipoEntidadBancaria = ?   WHERE idEntidadBancaria = ?";
+
+
+        PreparedStatement preparedStatement = conn.prepareStatement(updateSQL);
 
         preparedStatement.setString(1, entidadBancaria.getCodigoEntidad());
         preparedStatement.setString(2, entidadBancaria.getNombre());
